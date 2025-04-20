@@ -1,0 +1,11 @@
+# Command: nova help trigger-crash-dump
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova trigger-crash-dump <server>
+
+Trigger crash dump in an instance. (Supported by API versions '2.17' -
+'2.latest') [hint: use '--os-compute-api-version' flag to show help message
+for proper version]
+
+Positional arguments:
+  <server>  Name or ID of server.

@@ -1,0 +1,6 @@
+# Command: nova help aggregate-list
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova aggregate-list
+
+Print a list of all aggregates.

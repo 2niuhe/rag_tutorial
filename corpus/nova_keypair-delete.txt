@@ -1,0 +1,14 @@
+# Command: nova help keypair-delete
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova keypair-delete [--user <user-id>] <name>
+
+Delete keypair given by its name. (Supported by API versions '2.0' -
+'2.latest') [hint: use '--os-compute-api-version' flag to show help message
+for proper version]
+
+Positional arguments:
+  <name>            Keypair name to delete.
+
+Options:
+  --user <user-id>  ID of key-pair owner (Admin only).

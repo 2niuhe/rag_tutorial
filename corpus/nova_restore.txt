@@ -1,0 +1,9 @@
+# Command: nova help restore
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova restore <server>
+
+Restore a soft-deleted server.
+
+Positional arguments:
+  <server>  Name or ID of server.

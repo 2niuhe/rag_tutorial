@@ -1,0 +1,35 @@
+# Command: nova help quota-update
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova quota-update [--user <user-id>] [--instances <instances>]
+                         [--cores <cores>] [--ram <ram>]
+                         [--metadata-items <metadata-items>]
+                         [--key-pairs <key-pairs>]
+                         [--server-groups <server-groups>]
+                         [--server-group-members <server-group-members>]
+                         [--force]
+                         <tenant-id>
+
+Update the quotas for a tenant/user. (Supported by API versions '2.0' -
+'2.latest') [hint: use '--os-compute-api-version' flag to show help message
+for proper version]
+
+Positional arguments:
+  <tenant-id>                   ID of tenant to set the quotas for.
+
+Options:
+  --user <user-id>              ID of user to set the quotas for.
+  --instances <instances>       New value for the "instances" quota.
+  --cores <cores>               New value for the "cores" quota.
+  --ram <ram>                   New value for the "ram" quota.
+  --metadata-items <metadata-items>
+                                New value for the "metadata-items" quota.
+  --key-pairs <key-pairs>       New value for the "key-pairs" quota.
+  --server-groups <server-groups>
+                                New value for the "server-groups" quota.
+  --server-group-members <server-group-members>
+                                New value for the "server-group-members"
+                                quota.
+  --force                       Whether force update the quota even if the
+                                already used and reserved exceeds the new
+                                quota.

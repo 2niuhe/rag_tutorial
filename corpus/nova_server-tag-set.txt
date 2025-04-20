@@ -1,0 +1,12 @@
+# Command: nova help server-tag-set
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova server-tag-set <server> <tags> [<tags> ...]
+
+Set list of tags to a server. (Supported by API versions '2.26' - '2.latest')
+[hint: use '--os-compute-api-version' flag to show help message for proper
+version]
+
+Positional arguments:
+  <server>  Name or ID of server.
+  <tags>    Tag(s) to set.

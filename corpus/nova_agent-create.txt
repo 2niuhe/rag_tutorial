@@ -1,0 +1,15 @@
+# Command: nova help agent-create
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova agent-create <os> <architecture> <version> <url> <md5hash>
+                         <hypervisor>
+
+DEPRECATED Create new agent build.
+
+Positional arguments:
+  <os>            Type of OS.
+  <architecture>  Type of architecture.
+  <version>       Version.
+  <url>           URL.
+  <md5hash>       MD5 hash.
+  <hypervisor>    Type of hypervisor.

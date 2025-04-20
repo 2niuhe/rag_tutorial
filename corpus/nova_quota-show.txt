@@ -1,0 +1,11 @@
+# Command: nova help quota-show
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova quota-show [--tenant <tenant-id>] [--user <user-id>] [--detail]
+
+List the quotas for a tenant/user.
+
+Options:
+  --tenant <tenant-id>  ID of tenant to list the quotas for.
+  --user <user-id>      ID of user to list the quotas for.
+  --detail              Show detailed info (limit, reserved, in-use).

@@ -1,0 +1,30 @@
+# Command: nova help quota-class-update
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova quota-class-update [--instances <instances>] [--cores <cores>]
+                               [--ram <ram>]
+                               [--metadata-items <metadata-items>]
+                               [--key-pairs <key-pairs>]
+                               [--server-groups <server-groups>]
+                               [--server-group-members <server-group-members>]
+                               <class>
+
+Update the quotas for a quota class. (Supported by API versions '2.0' -
+'2.latest') [hint: use '--os-compute-api-version' flag to show help message
+for proper version]
+
+Positional arguments:
+  <class>                       Name of quota class to set the quotas for.
+
+Options:
+  --instances <instances>       New value for the "instances" quota.
+  --cores <cores>               New value for the "cores" quota.
+  --ram <ram>                   New value for the "ram" quota.
+  --metadata-items <metadata-items>
+                                New value for the "metadata-items" quota.
+  --key-pairs <key-pairs>       New value for the "key-pairs" quota.
+  --server-groups <server-groups>
+                                New value for the "server-groups" quota.
+  --server-group-members <server-group-members>
+                                New value for the "server-group-members"
+                                quota.

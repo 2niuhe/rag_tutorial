@@ -1,0 +1,10 @@
+# Command: nova help volume-detach
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova volume-detach <server> <volume>
+
+Detach a volume from a server.
+
+Positional arguments:
+  <server>  Name or ID of server.
+  <volume>  ID of the volume to detach.

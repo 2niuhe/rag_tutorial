@@ -1,0 +1,10 @@
+# Command: nova help add-secgroup
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova add-secgroup <server> <secgroup>
+
+Add a Security Group to a server.
+
+Positional arguments:
+  <server>    Name or ID of server.
+  <secgroup>  Name or ID of Security Group.

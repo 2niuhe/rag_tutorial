@@ -1,0 +1,17 @@
+# Command: nova help keypair-list
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova keypair-list [--user <user-id>] [--marker <marker>]
+                         [--limit <limit>]
+
+Print a list of keypairs for a user (Supported by API versions '2.0' -
+'2.latest') [hint: use '--os-compute-api-version' flag to show help message
+for proper version]
+
+Options:
+  --user <user-id>   List key-pairs of specified user ID (Admin only).
+  --marker <marker>  The last keypair of the previous page; displays list of
+                     keypairs after "marker".
+  --limit <limit>    Maximum number of keypairs to display. If limit is bigger
+                     than 'CONF.api.max_limit' option of Nova API, limit
+                     'CONF.api.max_limit' will be used instead.

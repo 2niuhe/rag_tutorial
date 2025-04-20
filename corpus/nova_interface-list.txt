@@ -1,0 +1,9 @@
+# Command: nova help interface-list
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova interface-list <server>
+
+List interfaces attached to a server.
+
+Positional arguments:
+  <server>  Name or ID of server.

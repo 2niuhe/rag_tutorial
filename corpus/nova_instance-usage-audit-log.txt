@@ -1,0 +1,12 @@
+# Command: nova help instance-usage-audit-log
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova instance-usage-audit-log [--before <before>]
+
+List/Get server usage audits.
+
+Options:
+  --before <before>  Filters the response by the date and time before which to
+                     list usage audits. The date and time stamp format is as
+                     follows: CCYY-MM-DD hh:mm:ss.NNNNNN ex 2015-08-27
+                     09:49:58 or 2015-08-27 09:49:58.123456.

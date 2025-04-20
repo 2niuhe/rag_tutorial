@@ -1,0 +1,13 @@
+# Command: nova help resize
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova resize [--poll] <server> <flavor>
+
+Resize a server.
+
+Positional arguments:
+  <server>  Name or ID of server.
+  <flavor>  Name or ID of new flavor.
+
+Options:
+  --poll    Report the server resize progress until it completes.

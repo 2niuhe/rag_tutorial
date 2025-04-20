@@ -1,0 +1,9 @@
+# Command: nova help force-delete
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova force-delete <server>
+
+Force delete a server.
+
+Positional arguments:
+  <server>  Name or ID of server.

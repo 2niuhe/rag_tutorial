@@ -1,0 +1,116 @@
+# Command: nova help list
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova list [--reservation-id <reservation-id>] [--ip <ip-regexp>]
+                 [--ip6 <ip6-regexp>] [--name <name-regexp>]
+                 [--status <status>] [--flavor <flavor>] [--image <image>]
+                 [--host <hostname>] [--all-tenants [<0|1>]]
+                 [--tenant [<tenant>]] [--user [<user>]] [--deleted]
+                 [--fields <fields>] [--minimal] [--sort <key>[:<direction>]]
+                 [--marker <marker>] [--limit <limit>]
+                 [--availability-zone <availability_zone>]
+                 [--key-name <key_name>] [--config-drive | --no-config-drive]
+                 [--progress <progress>] [--vm-state <vm_state>]
+                 [--task-state <task_state>] [--power-state <power_state>]
+                 [--changes-since <changes_since>]
+                 [--changes-before <changes_before>] [--tags <tags>]
+                 [--tags-any <tags-any>] [--not-tags <not-tags>]
+                 [--not-tags-any <not-tags-any>] [--locked <locked>]
+
+List servers.
+
+Options:
+  --reservation-id <reservation-id>
+                                Only return servers that match reservation-id.
+  --ip <ip-regexp>              Search with regular expression match by IP
+                                address.
+  --ip6 <ip6-regexp>            Search with regular expression match by IPv6
+                                address.
+  --name <name-regexp>          Search with regular expression match by name.
+  --status <status>             Search by server status.
+  --flavor <flavor>             Search by flavor name or ID.
+  --image <image>               Search by image name or ID.
+  --host <hostname>             Search servers by hostname to which they are
+                                assigned (Admin only).
+  --all-tenants [<0|1>]         Display information from all tenants (Admin
+                                only).
+  --tenant [<tenant>]           Display information from single tenant (Admin
+                                only).
+  --user [<user>]               Display information from single user (Admin
+                                only until microversion 2.82).
+  --deleted                     Only display deleted servers (Admin only).
+  --fields <fields>             Comma-separated list of fields to display. Use
+                                the show command to see which fields are
+                                available.
+  --minimal                     Get only UUID and name.
+  --sort <key>[:<direction>]    Comma-separated list of sort keys and
+                                directions in the form of <key>[:<asc|desc>].
+                                The direction defaults to descending if not
+                                specified.
+  --marker <marker>             The last server UUID of the previous page;
+                                displays list of servers after "marker".
+  --limit <limit>               Maximum number of servers to display. If limit
+                                == -1, all servers will be displayed. If limit
+                                is bigger than 'CONF.api.max_limit' option of
+                                Nova API, limit 'CONF.api.max_limit' will be
+                                used instead.
+  --availability-zone <availability_zone>
+                                Display servers based on their availability
+                                zone (Admin only until microversion 2.82).
+  --key-name <key_name>         Display servers based on their keypair name
+                                (Admin only until microversion 2.82).
+  --config-drive                Display servers that have a config drive
+                                attached. (Admin only until microversion
+                                2.82).
+  --no-config-drive             Display servers that do not have a config
+                                drive attached (Admin only until microversion
+                                2.82)
+  --progress <progress>         Display servers based on their progress value
+                                (Admin only until microversion 2.82).
+  --vm-state <vm_state>         Display servers based on their vm_state value
+                                (Admin only until microversion 2.82).
+  --task-state <task_state>     Display servers based on their task_state
+                                value (Admin only until microversion 2.82).
+  --power-state <power_state>   Display servers based on their power_state
+                                value (Admin only until microversion 2.82).
+  --changes-since <changes_since>
+                                List only servers changed later or equal to a
+                                certain point of time. The provided time
+                                should be an ISO 8061 formatted time. e.g.
+                                2016-03-04T06:27:59Z .
+  --changes-before <changes_before>
+                                List only servers changed earlier or equal to
+                                a certain point of time. The provided time
+                                should be an ISO 8061 formatted time. e.g.
+                                2016-03-04T06:27:59Z . (Supported by API
+                                versions '2.66' - '2.latest')
+  --tags <tags>                 The given tags must all be present for a
+                                server to be included in the list result.
+                                Boolean expression in this case is 't1 AND
+                                t2'. Tags must be separated by commas: --tags
+                                <tag1,tag2> (Supported by API versions '2.26'
+                                - '2.latest')
+  --tags-any <tags-any>         If one of the given tags is present the server
+                                will be included in the list result. Boolean
+                                expression in this case is 't1 OR t2'. Tags
+                                must be separated by commas: --tags-any
+                                <tag1,tag2> (Supported by API versions '2.26'
+                                - '2.latest')
+  --not-tags <not-tags>         Only the servers that do not have any of the
+                                given tags will be included in the list
+                                results. Boolean expression in this case is
+                                'NOT(t1 AND t2)'. Tags must be separated by
+                                commas: --not-tags <tag1,tag2> (Supported by
+                                API versions '2.26' - '2.latest')
+  --not-tags-any <not-tags-any>
+                                Only the servers that do not have at least one
+                                of the given tags will be included in the list
+                                result. Boolean expression in this case is
+                                'NOT(t1 OR t2)'. Tags must be separated by
+                                commas: --not-tags-any <tag1,tag2> (Supported
+                                by API versions '2.26' - '2.latest')
+  --locked <locked>             Display servers based on their locked value. A
+                                value must be specified; eg. 'true' will list
+                                only locked servers and 'false' will list only
+                                unlocked servers. (Supported by API versions
+                                '2.73' - '2.latest')

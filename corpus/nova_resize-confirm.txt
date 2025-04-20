@@ -1,0 +1,9 @@
+# Command: nova help resize-confirm
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova resize-confirm <server>
+
+Confirm a previous resize.
+
+Positional arguments:
+  <server>  Name or ID of server.

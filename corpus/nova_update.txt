@@ -1,0 +1,24 @@
+# Command: nova help update
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova update [--name <name>] [--description <description>]
+                   [--hostname HOSTNAME]
+                   <server>
+
+Update the name or the description for a server.
+
+Positional arguments:
+  <server>                     Name (old name) or ID of server.
+
+Options:
+  --name <name>                New name for the server.
+  --description <description>  New description for the server. If it equals to
+                               empty string (i.g. ""), the server description
+                               will be removed. (Supported by API versions
+                               '2.19' - '2.latest')
+  --hostname HOSTNAME          New hostname for the instance. This only
+                               updates the hostname stored in the metadata
+                               server: a utility running on the guest is
+                               required to propagate these changes to the
+                               guest. (Supported by API versions '2.90' -
+                               '2.latest')

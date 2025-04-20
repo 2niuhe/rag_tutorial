@@ -1,0 +1,9 @@
+# Command: nova help aggregate-delete
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova aggregate-delete <aggregate>
+
+Delete the aggregate.
+
+Positional arguments:
+  <aggregate>  Name or ID of aggregate to delete.

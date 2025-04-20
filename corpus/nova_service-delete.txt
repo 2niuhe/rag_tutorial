@@ -1,0 +1,14 @@
+# Command: nova help service-delete
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova service-delete <id>
+
+Delete the service by UUID ID. If deleting a nova-compute service, be sure to
+stop the actual nova-compute process on the physical host before deleting the
+service with this command. Failing to do so can lead to the running service
+re-creating orphaned compute_nodes table records in the database. (Supported
+by API versions '2.0' - '2.latest') [hint: use '--os-compute-api-version' flag
+to show help message for proper version]
+
+Positional arguments:
+  <id>  ID of service as a UUID.

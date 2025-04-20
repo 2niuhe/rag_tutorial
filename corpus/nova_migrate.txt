@@ -1,0 +1,14 @@
+# Command: nova help migrate
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova migrate [--host <host>] [--poll] <server>
+
+Migrate a server.
+
+Positional arguments:
+  <server>       Name or ID of server.
+
+Options:
+  --host <host>  Destination host name. (Supported by API versions '2.56' -
+                 '2.latest')
+  --poll         Report the server migration progress until it completes.

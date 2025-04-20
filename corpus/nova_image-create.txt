@@ -1,0 +1,19 @@
+# Command: nova help image-create
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova image-create [--metadata <key=value>] [--show] [--poll]
+                         <server> <name>
+
+Create a new image by taking a snapshot of a running server.
+
+Positional arguments:
+  <server>                Name or ID of server.
+  <name>                  Name of snapshot.
+
+Options:
+  --metadata <key=value>  Record arbitrary key/value metadata to
+                          /meta_data.json on the metadata server. Can be
+                          specified multiple times.
+  --show                  Print image info.
+  --poll                  Report the snapshot progress and poll until image
+                          creation is complete.

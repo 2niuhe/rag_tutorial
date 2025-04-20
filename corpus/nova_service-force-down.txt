@@ -1,0 +1,13 @@
+# Command: nova help service-force-down
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova service-force-down [--unset] <id>
+
+Force service to down. (Supported by API versions '2.11' - '2.latest') [hint:
+use '--os-compute-api-version' flag to show help message for proper version]
+
+Positional arguments:
+  <id>     ID of the service as a UUID.
+
+Options:
+  --unset  Unset the forced_down state of the service.

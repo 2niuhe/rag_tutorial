@@ -1,0 +1,15 @@
+# Command: nova help server-group-list
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova server-group-list [--limit <limit>] [--offset <offset>]
+                              [--all-projects]
+
+Print a list of all server groups.
+
+Options:
+  --limit <limit>    Maximum number of server groups to display. If limit is
+                     bigger than 'CONF.api.max_limit' option of Nova API,
+                     limit 'CONF.api.max_limit' will be used instead.
+  --offset <offset>  The offset of groups list to display; use with limit to
+                     return a slice of server groups.
+  --all-projects     Display server groups from all projects (Admin only).

@@ -1,0 +1,10 @@
+# Command: nova help quota-delete
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova quota-delete --tenant <tenant-id> [--user <user-id>]
+
+Delete quota for a tenant/user so their quota will Revert back to default.
+
+Options:
+  --tenant <tenant-id>  ID of tenant to delete quota for.
+  --user <user-id>      ID of user to delete quota for.

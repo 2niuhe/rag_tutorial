@@ -1,0 +1,9 @@
+# Command: nova help unrescue
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova unrescue <server>
+
+Restart the server from normal boot disk again.
+
+Positional arguments:
+  <server>  Name or ID of server.

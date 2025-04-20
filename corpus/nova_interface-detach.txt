@@ -1,0 +1,10 @@
+# Command: nova help interface-detach
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova interface-detach <server> <port_id>
+
+Detach a network interface from a server.
+
+Positional arguments:
+  <server>   Name or ID of server.
+  <port_id>  Port ID.

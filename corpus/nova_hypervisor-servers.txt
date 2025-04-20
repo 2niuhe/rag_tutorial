@@ -1,0 +1,9 @@
+# Command: nova help hypervisor-servers
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova hypervisor-servers <hostname>
+
+List servers belonging to specific hypervisors.
+
+Positional arguments:
+  <hostname>  The hypervisor hostname (or pattern) to search for.

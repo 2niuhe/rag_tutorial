@@ -1,0 +1,14 @@
+# Command: nova help hypervisor-show
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova hypervisor-show [--wrap <integer>] <hypervisor>
+
+Display the details of the specified hypervisor.
+
+Positional arguments:
+  <hypervisor>      Name or ID of the hypervisor. Starting with microversion
+                    2.53 the ID must be a UUID.
+
+Options:
+  --wrap <integer>  Wrap the output to a specified length. Default is 40 or 0
+                    to disable

@@ -1,0 +1,7 @@
+# Command: nova help hypervisor-stats
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova hypervisor-stats
+
+(Supported by API versions '2.0' - '2.latest') [hint: use '--os-compute-api-
+version' flag to show help message for proper version]

@@ -1,0 +1,16 @@
+# Command: nova help evacuate
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova evacuate [--password <password>] <server> [<host>]
+
+Evacuate server from failed host.
+
+Positional arguments:
+  <server>               Name or ID of server.
+  <host>                 Name or ID of the target host. If no host is
+                         specified, the scheduler will choose one.
+
+Options:
+  --password <password>  Set the provided admin password on the evacuated
+                         server. Not applicable if the server is on shared
+                         storage.

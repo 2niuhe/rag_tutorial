@@ -1,0 +1,9 @@
+# Command: nova help unpause
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova unpause <server>
+
+Unpause a server.
+
+Positional arguments:
+  <server>  Name or ID of server.

@@ -1,0 +1,18 @@
+# Command: nova help keypair-add
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova keypair-add [--pub-key <pub-key>] [--key-type <key-type>]
+                        [--user <user-id>]
+                        <name>
+
+Create a new key pair for use with servers.
+
+Positional arguments:
+  <name>                 Name of key.
+
+Options:
+  --pub-key <pub-key>    Path to a public ssh key.
+  --key-type <key-type>  Keypair type. Can be ssh or x509. (Supported by API
+                         versions '2.2' - '2.latest')
+  --user <user-id>       ID of user to whom to add key-pair (Admin only).
+                         (Supported by API versions '2.10' - '2.latest')

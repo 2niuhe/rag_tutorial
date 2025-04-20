@@ -1,0 +1,13 @@
+# Command: nova help aggregate-cache-images
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova aggregate-cache-images <aggregate> <image> [<image> ...]
+
+Request images be cached. (Supported by API versions '2.81' - '2.latest')
+[hint: use '--os-compute-api-version' flag to show help message for proper
+version]
+
+Positional arguments:
+  <aggregate>  Name or ID of the aggregate.
+  <image>      Name or ID of image(s) to cache on the hosts within the
+               aggregate.

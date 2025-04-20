@@ -1,0 +1,14 @@
+# Command: nova help host-servers-migrate
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova host-servers-migrate [--strict] <host>
+
+Cold migrate all instances off the specified host to other available hosts.
+
+Positional arguments:
+  <host>    The hypervisor hostname (or pattern) to search for. WARNING: Use a
+            fully qualified domain name if you only want to cold migrate from
+            a specific host.
+
+Options:
+  --strict  Migrate host with exact hypervisor hostname match

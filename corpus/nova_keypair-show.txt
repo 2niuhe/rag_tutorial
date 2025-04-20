@@ -1,0 +1,14 @@
+# Command: nova help keypair-show
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova keypair-show [--user <user-id>] <keypair>
+
+Show details about the given keypair. (Supported by API versions '2.0' -
+'2.latest') [hint: use '--os-compute-api-version' flag to show help message
+for proper version]
+
+Positional arguments:
+  <keypair>         Name of keypair.
+
+Options:
+  --user <user-id>  ID of key-pair owner (Admin only).

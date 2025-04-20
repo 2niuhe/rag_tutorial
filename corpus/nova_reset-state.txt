@@ -1,0 +1,14 @@
+# Command: nova help reset-state
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova reset-state [--all-tenants] [--active] <server> [<server> ...]
+
+Reset the state of a server.
+
+Positional arguments:
+  <server>       Name or ID of server(s).
+
+Options:
+  --all-tenants  Reset state server(s) in another tenant by name (Admin only).
+  --active       Request the server be reset to "active" state instead of
+                 "error" state (the default).

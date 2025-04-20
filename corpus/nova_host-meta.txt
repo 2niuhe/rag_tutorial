@@ -1,0 +1,16 @@
+# Command: nova help host-meta
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova host-meta [--strict] <host> <action> <key=value> [<key=value> ...]
+
+Set or Delete metadata on all instances of a host.
+
+Positional arguments:
+  <host>       The hypervisor hostname (or pattern) to search for. WARNING:
+               Use a fully qualified domain name if you only want to update
+               metadata for servers on a specific host.
+  <action>     Actions: 'set' or 'delete'
+  <key=value>  Metadata to set or delete (only key is necessary on delete)
+
+Options:
+  --strict     Set host-meta to the hypervisor with exact hostname match

@@ -1,0 +1,6 @@
+# Command: nova help availability-zone-list
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova availability-zone-list
+
+List all the availability zones.

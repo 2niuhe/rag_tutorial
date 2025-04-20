@@ -1,0 +1,16 @@
+# Command: nova help unshelve
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova unshelve [--availability-zone <availability-zone>] <server>
+
+Unshelve a server.
+
+Positional arguments:
+  <server>                      Name or ID of server.
+
+Options:
+  --availability-zone <availability-zone>
+                                Name of the availability zone in which to
+                                unshelve a SHELVED_OFFLOADED server.
+                                (Supported by API versions '2.77' -
+                                '2.latest')

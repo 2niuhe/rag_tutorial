@@ -1,0 +1,12 @@
+# Command: nova help agent-modify
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova agent-modify <id> <version> <url> <md5hash>
+
+DEPRECATED Modify existing agent build.
+
+Positional arguments:
+  <id>       ID of the agent-build.
+  <version>  Version.
+  <url>      URL
+  <md5hash>  MD5 hash.

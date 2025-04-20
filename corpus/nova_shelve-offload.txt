@@ -1,0 +1,9 @@
+# Command: nova help shelve-offload
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova shelve-offload <server>
+
+Remove a shelved server from the compute node.
+
+Positional arguments:
+  <server>  Name or ID of server.

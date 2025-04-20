@@ -1,0 +1,9 @@
+# Command: nova help reset-network
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova reset-network <server>
+
+Reset network of a server.
+
+Positional arguments:
+  <server>  Name or ID of server.

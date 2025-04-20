@@ -1,0 +1,9 @@
+# Command: nova help quota-defaults
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova quota-defaults [--tenant <tenant-id>]
+
+List the default quotas for a tenant.
+
+Options:
+  --tenant <tenant-id>  ID of tenant to list the default quotas for.

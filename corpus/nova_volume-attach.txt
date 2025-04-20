@@ -1,0 +1,21 @@
+# Command: nova help volume-attach
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova volume-attach [--tag <tag>] [--delete-on-termination]
+                          <server> <volume> [<device>]
+
+Attach a volume to a server.
+
+Positional arguments:
+  <server>                 Name or ID of server.
+  <volume>                 ID of the volume to attach.
+  <device>                 Name of the device e.g. /dev/vdb. Use "auto" for
+                           autoassign (if supported). Libvirt driver will use
+                           default device name.
+
+Options:
+  --tag <tag>              Tag for the attached volume. (Supported by API
+                           versions '2.49' - '2.latest')
+  --delete-on-termination  Specify if the attached volume should be deleted
+                           when the server is destroyed. (Supported by API
+                           versions '2.79' - '2.latest')

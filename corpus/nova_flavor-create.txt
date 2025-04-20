@@ -1,0 +1,28 @@
+# Command: nova help flavor-create
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova flavor-create [--ephemeral <ephemeral>] [--swap <swap>]
+                          [--rxtx-factor <factor>] [--is-public <is-public>]
+                          [--description <description>]
+                          <name> <id> <ram> <disk> <vcpus>
+
+Create a new flavor.
+
+Positional arguments:
+  <name>                       Unique name of the new flavor.
+  <id>                         Unique ID of the new flavor. Specifying 'auto'
+                               will generated a UUID for the ID.
+  <ram>                        Memory size in MiB.
+  <disk>                       Disk size in GiB.
+  <vcpus>                      Number of vcpus
+
+Options:
+  --ephemeral <ephemeral>      Ephemeral space size in GiB (default 0).
+  --swap <swap>                Additional swap space size in MiB (default 0).
+  --rxtx-factor <factor>       RX/TX factor (default 1).
+  --is-public <is-public>      Make flavor accessible to the public (default
+                               true).
+  --description <description>  A free form description of the flavor. Limited
+                               to 65535 characters in length. Only printable
+                               characters are allowed. (Supported by API
+                               versions '2.55' - '2.latest')

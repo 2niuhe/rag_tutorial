@@ -1,0 +1,9 @@
+# Command: nova help quota-class-show
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova quota-class-show <class>
+
+List the quotas for a quota class.
+
+Positional arguments:
+  <class>  Name of quota class to list the quotas for.

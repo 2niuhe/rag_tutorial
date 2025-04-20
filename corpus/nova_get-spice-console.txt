@@ -1,0 +1,10 @@
+# Command: nova help get-spice-console
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova get-spice-console <server> <console-type>
+
+Get a spice console to a server.
+
+Positional arguments:
+  <server>        Name or ID of server.
+  <console-type>  Type of spice console ("spice-html5").

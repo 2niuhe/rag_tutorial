@@ -1,0 +1,16 @@
+# Command: nova help aggregate-update
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova aggregate-update [--name <name>]
+                             [--availability-zone <availability-zone>]
+                             <aggregate>
+
+Update the aggregate's name and optionally availability zone.
+
+Positional arguments:
+  <aggregate>                   Name or ID of aggregate to update.
+
+Options:
+  --name <name>                 New name for aggregate.
+  --availability-zone <availability-zone>
+                                New availability zone for aggregate.

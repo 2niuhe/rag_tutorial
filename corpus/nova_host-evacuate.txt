@@ -1,0 +1,18 @@
+# Command: nova help host-evacuate
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova host-evacuate [--target_host <target_host>] [--strict] <host>
+
+Evacuate all instances from failed host.
+
+Positional arguments:
+  <host>                       The hypervisor hostname (or pattern) to search
+                               for. WARNING: Use a fully qualified domain name
+                               if you only want to evacuate from a specific
+                               host.
+
+Options:
+  --target_host <target_host>  Name of target host. If no host is specified
+                               the scheduler will select a target.
+  --strict                     Evacuate host with exact hypervisor hostname
+                               match

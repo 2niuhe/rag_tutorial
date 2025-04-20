@@ -1,0 +1,10 @@
+# Command: nova help aggregate-create
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova aggregate-create <name> [<availability-zone>]
+
+Create a new aggregate with the specified details.
+
+Positional arguments:
+  <name>               Name of aggregate.
+  <availability-zone>  The availability zone of the aggregate (optional).

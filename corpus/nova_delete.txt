@@ -1,0 +1,12 @@
+# Command: nova help delete
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova delete [--all-tenants] <server> [<server> ...]
+
+Immediately shut down and delete specified server(s).
+
+Positional arguments:
+  <server>       Name or ID of server(s).
+
+Options:
+  --all-tenants  Delete server(s) in another tenant by name (Admin only).

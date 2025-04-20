@@ -1,0 +1,12 @@
+# Command: nova help instance-action
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova instance-action <server> <request_id>
+
+Show an action.
+
+Positional arguments:
+  <server>      Name or UUID of the server to show actions for. Only UUID can
+                be used to show actions for a deleted server. (Supported by
+                API versions '2.21' - '2.latest')
+  <request_id>  Request ID of the action to get.

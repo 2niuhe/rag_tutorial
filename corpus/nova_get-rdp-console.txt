@@ -1,0 +1,10 @@
+# Command: nova help get-rdp-console
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova get-rdp-console <server> <console-type>
+
+Get a rdp console to a server.
+
+Positional arguments:
+  <server>        Name or ID of server.
+  <console-type>  Type of rdp console ("rdp-html5").

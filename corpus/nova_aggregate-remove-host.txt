@@ -1,0 +1,10 @@
+# Command: nova help aggregate-remove-host
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova aggregate-remove-host <aggregate> <host>
+
+Remove the specified host from the specified aggregate.
+
+Positional arguments:
+  <aggregate>  Name or ID of aggregate.
+  <host>       The host to remove from the aggregate.

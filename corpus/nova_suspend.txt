@@ -1,0 +1,9 @@
+# Command: nova help suspend
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova suspend <server>
+
+Suspend a server.
+
+Positional arguments:
+  <server>  Name or ID of server.

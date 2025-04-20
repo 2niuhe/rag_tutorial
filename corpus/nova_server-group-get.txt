@@ -1,0 +1,9 @@
+# Command: nova help server-group-get
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova server-group-get <id>
+
+Get a specific server group.
+
+Positional arguments:
+  <id>  Unique ID of the server group to get.

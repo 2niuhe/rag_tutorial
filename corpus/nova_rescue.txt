@@ -1,0 +1,16 @@
+# Command: nova help rescue
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova rescue [--password <password>] [--image <image>] <server>
+
+Reboots a server into rescue mode, which starts the machine from either the
+initial image or a specified image, attaching the current boot disk as
+secondary.
+
+Positional arguments:
+  <server>               Name or ID of server.
+
+Options:
+  --password <password>  The admin password to be set in the rescue
+                         environment.
+  --image <image>        The image to rescue with.

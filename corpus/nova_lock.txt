@@ -1,0 +1,14 @@
+# Command: nova help lock
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova lock [--reason <reason>] <server>
+
+Lock a server. A normal (non-admin) user will not be able to execute actions
+on a locked server.
+
+Positional arguments:
+  <server>           Name or ID of server.
+
+Options:
+  --reason <reason>  Reason for locking the server. (Supported by API versions
+                     '2.73' - '2.latest')

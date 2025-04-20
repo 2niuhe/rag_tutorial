@@ -1,0 +1,12 @@
+# Command: nova help backup
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova backup <server> <name> <backup-type> <rotation>
+
+Backup a server by creating a 'backup' type snapshot.
+
+Positional arguments:
+  <server>       Name or ID of server.
+  <name>         Name of the backup image.
+  <backup-type>  The backup type, like "daily" or "weekly".
+  <rotation>     Int parameter representing how many backups to keep around.

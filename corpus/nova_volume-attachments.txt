@@ -1,0 +1,9 @@
+# Command: nova help volume-attachments
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova volume-attachments <server>
+
+List all the volumes attached to a server.
+
+Positional arguments:
+  <server>  Name or ID of server.

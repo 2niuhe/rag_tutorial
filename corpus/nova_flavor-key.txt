@@ -1,0 +1,11 @@
+# Command: nova help flavor-key
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova flavor-key <flavor> <action> <key=value> [<key=value> ...]
+
+Set or unset extra_spec for a flavor.
+
+Positional arguments:
+  <flavor>     Name or ID of flavor.
+  <action>     Actions: 'set' or 'unset'.
+  <key=value>  Extra_specs to set/unset (only key is necessary on unset).

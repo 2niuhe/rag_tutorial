@@ -1,0 +1,28 @@
+# Command: nova help ssh
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova ssh [--port PORT] [--address-type ADDRESS_TYPE]
+                [--network <network>] [--ipv6] [--login <login>] [-i IDENTITY]
+                [--extra-opts EXTRA]
+                <server>
+
+SSH into a server.
+
+Positional arguments:
+  <server>                      Name or ID of server.
+
+Options:
+  --port PORT                   Optional flag to indicate which port to use
+                                for ssh. (Default=22)
+  --address-type ADDRESS_TYPE   Optional flag to indicate which IP type to
+                                use. Possible values includes fixed and
+                                floating (the Default).
+  --network <network>           Network to use for the ssh.
+  --ipv6                        Optional flag to indicate whether to use an
+                                IPv6 address attached to a server. (Defaults
+                                to IPv4 address)
+  --login <login>               Login to use.
+  -i IDENTITY, --identity IDENTITY
+                                Private key file, same as the -i option to the
+                                ssh command.
+  --extra-opts EXTRA            Extra options to pass to ssh. see: man ssh.

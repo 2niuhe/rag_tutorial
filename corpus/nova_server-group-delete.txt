@@ -1,0 +1,9 @@
+# Command: nova help server-group-delete
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova server-group-delete <id> [<id> ...]
+
+Delete specific server group(s).
+
+Positional arguments:
+  <id>  Unique ID(s) of the server group to delete.

@@ -1,0 +1,9 @@
+# Command: nova help agent-delete
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova agent-delete <id>
+
+DEPRECATED Delete existing agent build.
+
+Positional arguments:
+  <id>  ID of the agent-build.

@@ -1,0 +1,16 @@
+# Command: nova help reboot
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova reboot [--hard] [--poll] <server> [<server> ...]
+
+Reboot a server.
+
+Positional arguments:
+  <server>  Name or ID of server(s).
+
+Options:
+  --hard    Perform a hard reboot (instead of a soft one). Note: Ironic does
+            not currently support soft reboot; consequently, bare metal nodes
+            will always do a hard reboot, regardless of the use of this
+            option.
+  --poll    Poll until reboot is complete.

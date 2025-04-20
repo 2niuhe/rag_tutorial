@@ -1,0 +1,12 @@
+# Command: nova help start
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova start [--all-tenants] <server> [<server> ...]
+
+Start the server(s).
+
+Positional arguments:
+  <server>       Name or ID of server(s).
+
+Options:
+  --all-tenants  Start server(s) in another tenant by name (Admin only).

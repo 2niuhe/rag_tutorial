@@ -1,0 +1,12 @@
+# Command: nova help console-log
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova console-log [--length <length>] <server>
+
+Get console log output of a server.
+
+Positional arguments:
+  <server>           Name or ID of server.
+
+Options:
+  --length <length>  Length in lines to tail.

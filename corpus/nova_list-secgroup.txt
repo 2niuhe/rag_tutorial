@@ -1,0 +1,9 @@
+# Command: nova help list-secgroup
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova list-secgroup <server>
+
+List Security Group(s) of a server.
+
+Positional arguments:
+  <server>  Name or ID of server.

@@ -1,0 +1,13 @@
+# Command: nova help show
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova show [--minimal] [--wrap <integer>] <server>
+
+Show details about the given server.
+
+Positional arguments:
+  <server>          Name or ID of server.
+
+Options:
+  --minimal         Skips flavor/image lookups when showing servers.
+  --wrap <integer>  Wrap the output to a specified length, or 0 to disable.

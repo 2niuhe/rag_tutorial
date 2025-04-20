@@ -1,0 +1,10 @@
+# Command: nova help hypervisor-uptime
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova hypervisor-uptime <hypervisor>
+
+Display the uptime of the specified hypervisor.
+
+Positional arguments:
+  <hypervisor>  Name or ID of the hypervisor. Starting with microversion 2.53
+                the ID must be a UUID.

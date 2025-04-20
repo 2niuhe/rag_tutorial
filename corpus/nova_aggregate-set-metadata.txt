@@ -1,0 +1,11 @@
+# Command: nova help aggregate-set-metadata
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova aggregate-set-metadata <aggregate> <key=value> [<key=value> ...]
+
+Update the metadata associated with the aggregate.
+
+Positional arguments:
+  <aggregate>  Name or ID of aggregate to update.
+  <key=value>  Metadata to add/update to aggregate. Specify only the key to
+               delete a metadata item.

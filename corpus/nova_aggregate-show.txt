@@ -1,0 +1,9 @@
+# Command: nova help aggregate-show
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova aggregate-show <aggregate>
+
+Show details of the specified aggregate.
+
+Positional arguments:
+  <aggregate>  Name or ID of aggregate.

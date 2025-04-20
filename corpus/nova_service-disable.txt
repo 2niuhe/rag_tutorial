@@ -1,0 +1,13 @@
+# Command: nova help service-disable
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova service-disable [--reason <reason>] <id>
+
+Disable the service. (Supported by API versions '2.0' - '2.latest') [hint: use
+'--os-compute-api-version' flag to show help message for proper version]
+
+Positional arguments:
+  <id>               ID of the service as a UUID.
+
+Options:
+  --reason <reason>  Reason for disabling the service.

@@ -1,0 +1,10 @@
+# Command: nova help refresh-network
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova refresh-network <server>
+
+Refresh server network information.
+
+Positional arguments:
+  <server>  Name or ID of a server for which the network cache should be
+            refreshed from neutron (Admin only).

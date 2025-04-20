@@ -1,0 +1,10 @@
+# Command: nova help service-list
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova service-list [--host <hostname>] [--binary <binary>]
+
+Show a list of all running services. Filter by host & binary.
+
+Options:
+  --host <hostname>  Name of host.
+  --binary <binary>  Service binary.

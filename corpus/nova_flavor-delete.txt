@@ -1,0 +1,9 @@
+# Command: nova help flavor-delete
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova flavor-delete <flavor>
+
+Delete a specific flavor
+
+Positional arguments:
+  <flavor>  Name or ID of the flavor to delete.

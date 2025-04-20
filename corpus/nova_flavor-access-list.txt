@@ -1,0 +1,9 @@
+# Command: nova help flavor-access-list
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova flavor-access-list [--flavor <flavor>]
+
+Print access information about the given flavor.
+
+Options:
+  --flavor <flavor>  Filter results by flavor name or ID.

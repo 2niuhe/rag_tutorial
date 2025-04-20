@@ -1,0 +1,11 @@
+# Command: nova help meta
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova meta <server> <action> <key=value> [<key=value> ...]
+
+Set or delete metadata on a server.
+
+Positional arguments:
+  <server>     Name or ID of server.
+  <action>     Actions: 'set' or 'delete'.
+  <key=value>  Metadata to set or delete (only key is necessary on delete).

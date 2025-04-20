@@ -1,0 +1,9 @@
+# Command: nova help flavor-show
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova flavor-show <flavor>
+
+Show details about the given flavor.
+
+Positional arguments:
+  <flavor>  Name or ID of flavor.

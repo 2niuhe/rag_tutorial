@@ -1,0 +1,10 @@
+# Command: nova help limits
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova limits [--tenant [<tenant>]] [--reserved]
+
+Print rate and absolute limits.
+
+Options:
+  --tenant [<tenant>]  Display information from single tenant (Admin only).
+  --reserved           Include reservations count.

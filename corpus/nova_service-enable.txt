@@ -1,0 +1,10 @@
+# Command: nova help service-enable
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova service-enable <id>
+
+Enable the service. (Supported by API versions '2.0' - '2.latest') [hint: use
+'--os-compute-api-version' flag to show help message for proper version]
+
+Positional arguments:
+  <id>  ID of the service as a UUID.

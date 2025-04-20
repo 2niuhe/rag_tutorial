@@ -1,0 +1,11 @@
+# Command: nova help usage-list
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova usage-list [--start <start>] [--end <end>]
+
+List usage data for all tenants.
+
+Options:
+  --start <start>  Usage range start date ex 2012-01-20. (default: 4 weeks
+                   ago)
+  --end <end>      Usage range end date, ex 2012-01-20. (default: tomorrow)

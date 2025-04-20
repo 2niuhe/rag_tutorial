@@ -1,0 +1,69 @@
+# Command: nova help rebuild
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova rebuild [--rebuild-password <rebuild-password>] [--poll]
+                    [--minimal] [--preserve-ephemeral] [--name <name>]
+                    [--description <description>] [--meta <key=value>]
+                    [--key-name <key-name>] [--key-unset]
+                    [--user-data <user-data>] [--user-data-unset]
+                    [--trusted-image-certificate-id <trusted-image-certificate-id>]
+                    [--trusted-image-certificates-unset] [--hostname HOSTNAME]
+                    <server> <image>
+
+Shutdown, re-image, and re-boot a server.
+
+Positional arguments:
+  <server>                      Name or ID of server.
+  <image>                       Name or ID of new image.
+
+Options:
+  --rebuild-password <rebuild-password>
+                                Set the provided admin password on the rebuilt
+                                server.
+  --poll                        Report the server rebuild progress until it
+                                completes.
+  --minimal                     Skips flavor/image lookups when showing
+                                servers.
+  --preserve-ephemeral          Preserve the default ephemeral storage
+                                partition on rebuild.
+  --name <name>                 Name for the new server.
+  --description <description>   New description for the server. (Supported by
+                                API versions '2.19' - '2.latest')
+  --meta <key=value>            Record arbitrary key/value metadata to
+                                /meta_data.json on the metadata server. Can be
+                                specified multiple times.
+  --key-name <key-name>         Keypair name to set in the server. Cannot be
+                                specified with the '--key-unset' option.
+                                (Supported by API versions '2.54' -
+                                '2.latest')
+  --key-unset                   Unset keypair in the server. Cannot be
+                                specified with the '--key-name' option.
+                                (Supported by API versions '2.54' -
+                                '2.latest')
+  --user-data <user-data>       User data file to pass to be exposed by the
+                                metadata server. (Supported by API versions
+                                '2.57' - '2.latest')
+  --user-data-unset             Unset user_data in the server. Cannot be
+                                specified with the '--user-data' option.
+                                (Supported by API versions '2.57' -
+                                '2.latest')
+  --trusted-image-certificate-id <trusted-image-certificate-id>
+                                Trusted image certificate IDs used to validate
+                                certificates during the image signature
+                                verification process. Defaults to
+                                env[OS_TRUSTED_IMAGE_CERTIFICATE_IDS]. May be
+                                specified multiple times to pass multiple
+                                trusted image certificate IDs. (Supported by
+                                API versions '2.63' - '2.latest')
+  --trusted-image-certificates-unset
+                                Unset trusted_image_certificates in the
+                                server. Cannot be specified with the '--
+                                trusted-image-certificate-id' option.
+                                (Supported by API versions '2.63' -
+                                '2.latest')
+  --hostname HOSTNAME           New hostname for the instance. This only
+                                updates the hostname stored in the metadata
+                                server: a utility running on the guest is
+                                required to propagate these changes to the
+                                guest. (Supported by API versions '2.90' -
+                                '2.latest')

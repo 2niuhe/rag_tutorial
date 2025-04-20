@@ -1,0 +1,13 @@
+# Command: nova help usage
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova usage [--start <start>] [--end <end>] [--tenant <tenant-id>]
+
+Show usage data for a single tenant.
+
+Options:
+  --start <start>       Usage range start date ex 2012-01-20. (default: 4
+                        weeks ago)
+  --end <end>           Usage range end date, ex 2012-01-20. (default:
+                        tomorrow)
+  --tenant <tenant-id>  UUID of tenant to get usage for.

@@ -1,0 +1,16 @@
+# Command: nova help live-migration
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova live-migration [--block-migrate] <server> [<host>]
+
+Migrate running server to a new machine.
+
+Positional arguments:
+  <server>         Name or ID of server.
+  <host>           Destination host name. If no host is specified, the
+                   scheduler will choose one.
+
+Options:
+  --block-migrate  True in case of block_migration.
+                   (Default=auto:live_migration) (Supported by API versions
+                   '2.25' - '2.latest')

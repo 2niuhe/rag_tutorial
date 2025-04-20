@@ -1,0 +1,24 @@
+# Command: nova help host-evacuate-live
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova host-evacuate-live [--target-host <target_host>] [--block-migrate]
+                               [--max-servers <max_servers>] [--strict]
+                               <host>
+
+Live migrate all instances off the specified host to other available hosts.
+
+Positional arguments:
+  <host>                       The hypervisor hostname (or pattern) to search
+                               for. WARNING: Use a fully qualified domain name
+                               if you only want to live migrate from a
+                               specific host.
+
+Options:
+  --target-host <target_host>  Name of target host. If no host is specified,
+                               the scheduler will choose one.
+  --block-migrate              Enable block migration. (Default=auto)
+                               (Supported by API versions '2.25' - '2.latest')
+  --max-servers <max_servers>  Maximum number of servers to live migrate
+                               simultaneously
+  --strict                     live Evacuate host with exact hypervisor
+                               hostname match

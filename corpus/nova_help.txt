@@ -1,0 +1,9 @@
+# Command: nova help help
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova help [<subcommand>]
+
+Display help about this program or one of its subcommands.
+
+Positional arguments:
+  <subcommand>  Display help for <subcommand>.

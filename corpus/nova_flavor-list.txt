@@ -1,0 +1,22 @@
+# Command: nova help flavor-list
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova flavor-list [--extra-specs] [--all] [--marker <marker>]
+                        [--min-disk <min-disk>] [--min-ram <min-ram>]
+                        [--limit <limit>] [--sort-key <sort-key>]
+                        [--sort-dir <sort-dir>]
+
+Print a list of available 'flavors' (sizes of servers).
+
+Options:
+  --extra-specs          Get extra-specs of each flavor.
+  --all                  Display all flavors (Admin only).
+  --marker <marker>      The last flavor ID of the previous page; displays
+                         list of flavors after "marker".
+  --min-disk <min-disk>  Filters the flavors by a minimum disk space, in GiB.
+  --min-ram <min-ram>    Filters the flavors by a minimum RAM, in MiB.
+  --limit <limit>        Maximum number of flavors to display. If limit is
+                         bigger than 'CONF.api.max_limit' option of Nova API,
+                         limit 'CONF.api.max_limit' will be used instead.
+  --sort-key <sort-key>  Flavors list sort key.
+  --sort-dir <sort-dir>  Flavors list sort direction.

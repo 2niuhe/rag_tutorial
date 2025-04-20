@@ -1,0 +1,10 @@
+# Command: nova help flavor-access-remove
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova flavor-access-remove <flavor> <tenant_id>
+
+Remove flavor access for the given tenant.
+
+Positional arguments:
+  <flavor>     Flavor name or ID to remove access for the given tenant.
+  <tenant_id>  Tenant ID to remove flavor access for.

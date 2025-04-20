@@ -1,0 +1,11 @@
+# Command: nova help server-migration-list
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova server-migration-list <server>
+
+Get the migrations list of specified server. (Supported by API versions '2.23'
+- '2.latest') [hint: use '--os-compute-api-version' flag to show help message
+for proper version]
+
+Positional arguments:
+  <server>  Name or ID of server.

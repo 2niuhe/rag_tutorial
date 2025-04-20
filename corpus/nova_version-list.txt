@@ -1,0 +1,6 @@
+# Command: nova help version-list
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova version-list
+
+List all API versions.

@@ -1,0 +1,10 @@
+# Command: nova help flavor-access-add
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova flavor-access-add <flavor> <tenant_id>
+
+Add flavor access for the given tenant.
+
+Positional arguments:
+  <flavor>     Flavor name or ID to add access for the given tenant.
+  <tenant_id>  Tenant ID to add flavor access for.

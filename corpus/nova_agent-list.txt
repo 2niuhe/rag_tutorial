@@ -1,0 +1,9 @@
+# Command: nova help agent-list
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova agent-list [--hypervisor <hypervisor>]
+
+DEPRECATED List all builds.
+
+Options:
+  --hypervisor <hypervisor>  Type of hypervisor.

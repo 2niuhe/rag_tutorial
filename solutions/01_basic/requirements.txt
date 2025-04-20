@@ -1,0 +1,5 @@
+chromadb==1.0.4
+sentence-transformers
+pydantic
+tqdm
+numpy

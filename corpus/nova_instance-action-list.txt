@@ -1,0 +1,36 @@
+# Command: nova help instance-action-list
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova instance-action-list [--marker <marker>] [--limit <limit>]
+                                 [--changes-since <changes_since>]
+                                 [--changes-before <changes_before>]
+                                 <server>
+
+List actions on a server. (Supported by API versions '2.0' - '2.latest')
+[hint: use '--os-compute-api-version' flag to show help message for proper
+version]
+
+Positional arguments:
+  <server>                      Name or UUID of the server to list actions
+                                for. Only UUID can be used to list actions on
+                                a deleted server.
+
+Options:
+  --marker <marker>             The last instance action of the previous page;
+                                displays list of actions after "marker".
+  --limit <limit>               Maximum number of instance actions to display.
+                                Note that there is a configurable max limit on
+                                the server, and the limit that is used will be
+                                the minimum of what is requested here and what
+                                is configured in the server.
+  --changes-since <changes_since>
+                                List only instance actions changed later or
+                                equal to a certain point of time. The provided
+                                time should be an ISO 8061 formatted time.
+                                e.g. 2016-03-04T06:27:59Z.
+  --changes-before <changes_before>
+                                List only instance actions changed earlier or
+                                equal to a certain point of time. The provided
+                                time should be an ISO 8061 formatted time.
+                                e.g. 2016-03-04T06:27:59Z. (Supported by API
+                                versions '2.66' - '2.latest')

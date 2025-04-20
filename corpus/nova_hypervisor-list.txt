@@ -1,0 +1,18 @@
+# Command: nova help hypervisor-list
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova hypervisor-list [--matching <hostname>] [--marker <marker>]
+                            [--limit <limit>]
+
+List hypervisors. (Supported by API versions '2.0' - '2.latest') [hint: use '
+--os-compute-api-version' flag to show help message for proper version]
+
+Options:
+  --matching <hostname>  List hypervisors matching the given <hostname> (or
+                         pattern). If matching is used limit and marker
+                         options will be ignored.
+  --marker <marker>      The last hypervisor of the previous page; displays
+                         list of hypervisors after "marker".
+  --limit <limit>        Maximum number of hypervisors to display. If limit is
+                         bigger than 'CONF.api.max_limit' option of Nova API,
+                         limit 'CONF.api.max_limit' will be used instead.

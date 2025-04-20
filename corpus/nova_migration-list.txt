@@ -1,0 +1,53 @@
+# Command: nova help migration-list
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova migration-list [--instance-uuid <instance_uuid>] [--host <host>]
+                           [--status <status>]
+                           [--migration-type <migration_type>]
+                           [--source-compute <source_compute>]
+                           [--marker <marker>] [--limit <limit>]
+                           [--changes-since <changes_since>]
+                           [--changes-before <changes_before>]
+                           [--project-id <project_id>] [--user-id <user_id>]
+
+Print a list of migrations. (Supported by API versions '2.0' - '2.latest')
+[hint: use '--os-compute-api-version' flag to show help message for proper
+version]
+
+Options:
+  --instance-uuid <instance_uuid>
+                                Fetch migrations for the given instance.
+  --host <host>                 Fetch migrations for the given source or
+                                destination host.
+  --status <status>             Fetch migrations for the given status.
+  --migration-type <migration_type>
+                                Filter migrations by type. Valid values are:
+                                evacuation, live-migration, migration (cold),
+                                resize
+  --source-compute <source_compute>
+                                Filter migrations by source compute host name.
+  --marker <marker>             The last migration of the previous page;
+                                displays list of migrations after "marker".
+                                Note that the marker is the migration UUID.
+  --limit <limit>               Maximum number of migrations to display. Note
+                                that there is a configurable max limit on the
+                                server, and the limit that is used will be the
+                                minimum of what is requested here and what is
+                                configured in the server.
+  --changes-since <changes_since>
+                                List only migrations changed later or equal to
+                                a certain point of time. The provided time
+                                should be an ISO 8061 formatted time. e.g.
+                                2016-03-04T06:27:59Z .
+  --changes-before <changes_before>
+                                List only migrations changed earlier or equal
+                                to a certain point of time. The provided time
+                                should be an ISO 8061 formatted time. e.g.
+                                2016-03-04T06:27:59Z . (Supported by API
+                                versions '2.66' - '2.latest')
+  --project-id <project_id>     Filter the migrations by the given project ID.
+                                (Supported by API versions '2.80' -
+                                '2.latest')
+  --user-id <user_id>           Filter the migrations by the given user ID.
+                                (Supported by API versions '2.80' -
+                                '2.latest')

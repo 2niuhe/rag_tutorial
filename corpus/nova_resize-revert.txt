@@ -1,0 +1,9 @@
+# Command: nova help resize-revert
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova resize-revert <server>
+
+Revert a previous resize (and return to the previous VM).
+
+Positional arguments:
+  <server>  Name or ID of server.

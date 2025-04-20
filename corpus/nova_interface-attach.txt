@@ -1,0 +1,18 @@
+# Command: nova help interface-attach
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova interface-attach [--port-id <port_id>] [--net-id <net_id>]
+                             [--fixed-ip <fixed_ip>] [--tag <tag>]
+                             <server>
+
+Attach a network interface to a server.
+
+Positional arguments:
+  <server>               Name or ID of server.
+
+Options:
+  --port-id <port_id>    Port ID.
+  --net-id <net_id>      Network ID
+  --fixed-ip <fixed_ip>  Requested fixed IP.
+  --tag <tag>            Tag for the attached interface. (Supported by API
+                         versions '2.49' - '2.latest')

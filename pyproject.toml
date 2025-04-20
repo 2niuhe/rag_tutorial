@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rag_tutorial"
+version = "0.1.0"
+description = "RAG Tutorial Project"
+requires-python = ">=3.8"
+
+# Define the PyTorch index for ROCm 6.4
+[[tool.uv.index]]
+name = "pytorch-rocm"
+url = "https://download.pytorch.org/whl/nightly/rocm6.4"
+# Make this index the default for torch packages
+default = false
+# Don't make this index explicit so it can be used for dependencies
+explicit = false
+
+# Pin torch to use the PyTorch ROCm index
+[tool.uv.sources]
+torch = { index = "pytorch-rocm" }

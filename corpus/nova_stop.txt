@@ -1,0 +1,12 @@
+# Command: nova help stop
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova stop [--all-tenants] <server> [<server> ...]
+
+Stop the server(s).
+
+Positional arguments:
+  <server>       Name or ID of server(s).
+
+Options:
+  --all-tenants  Stop server(s) in another tenant by name (Admin only).

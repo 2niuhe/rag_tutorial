@@ -1,0 +1,12 @@
+# Command: nova help get-serial-console
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova get-serial-console [--console-type CONSOLE_TYPE] <server>
+
+Get a serial console to a server.
+
+Positional arguments:
+  <server>                     Name or ID of server.
+
+Options:
+  --console-type CONSOLE_TYPE  Type of serial console, default="serial".

@@ -1,0 +1,10 @@
+# Command: nova help remove-secgroup
+
+nova CLI is deprecated and will be removed in a future release
+usage: nova remove-secgroup <server> <secgroup>
+
+Remove a Security Group from a server.
+
+Positional arguments:
+  <server>    Name or ID of server.
+  <secgroup>  Name of Security Group.
