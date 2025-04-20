@@ -30,24 +30,10 @@ def load_documents(directory_path: str, file_extension: str = ".txt") -> List[Di
         if filename.endswith(file_extension):
             file_path = os.path.join(directory_path, filename)
             
-            # 读取文件内容
-            try:
-                with open(file_path, 'r', encoding='utf-8') as file:
-                    content = file.read()
-                
-                # 创建文档字典，包含内容和元数据
-                document = {
-                    'content': content,
-                    'metadata': {
-                        'source': file_path,
-                        'filename': filename,
-                        'file_extension': file_extension
-                    }
-                }
-                
+            # 加载单个文档
+            document = load_single_document(file_path)
+            if document:
                 documents.append(document)
-            except Exception as e:
-                print(f"加载文件 {file_path} 时出错: {str(e)}")
     
     print(f"已加载 {len(documents)} 个文档")
     return documents

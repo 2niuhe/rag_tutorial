@@ -13,11 +13,9 @@
 """
 
 import os
-import json
-import time
 import numpy as np
 import chromadb
-from typing import List, Dict, Any, Optional, Tuple
+from typing import List, Dict, Any
 from chromadb.utils import embedding_functions
 
 # 导入自定义工具模块
@@ -71,15 +69,24 @@ class SimpleRAG:
             model_name=self.embedding_generator.model_name
         )
         
-        # 创建新集合
-        collection = self.chroma_client.create_collection(
-            name=collection_name,
-            embedding_function=ef,
-            metadata={"hnsw:space": "cosine"}  # 使用余弦相似度
-        )
-        print(f"已创建新集合: {collection_name}")
-        
-        return collection
+        # 先检查集合是否存在
+        try:
+            # 尝试获取现有集合
+            collection = self.chroma_client.get_collection(
+                name=collection_name,
+                embedding_function=ef
+            )
+            print(f"已获取现有集合: {collection_name}")
+            return collection
+        except Exception:
+            # 如果集合不存在，则创建新集合
+            collection = self.chroma_client.create_collection(
+                name=collection_name,
+                embedding_function=ef,
+                metadata={"hnsw:space": "cosine"}  # 使用余弦相似度
+            )
+            print(f"已创建新集合: {collection_name}")
+            return collection
     
     def index_documents(self, 
                        documents_dir: str, 
@@ -93,64 +100,49 @@ class SimpleRAG:
             chunk_size: 文本块大小
             chunk_overlap: 文本块重叠大小
         """
-        start_time = time.time()
         print(f"开始索引文档目录: {documents_dir}")
         
         # 1. 加载文档
         documents = load_documents(documents_dir)
-        if not documents:
-            print("未找到文档，索引过程终止")
-            return
-        
+        print('开始分块')
         # 2. 文本分块
-        chunks = split_text(documents, chunk_size, chunk_overlap)
-        
+        chunks = split_text(
+            documents, 
+            chunk_size=chunk_size, 
+            chunk_overlap=chunk_overlap
+        )
+        print('开始生成嵌入')
         # 3. 生成嵌入
         embedded_chunks = self.embedding_generator.generate_embeddings(chunks)
         
         # 4. 存储到ChromaDB
-        self._add_to_chroma(embedded_chunks)
+        # 准备批量添加数据
+        ids = []
+        documents_text = []
+        embeddings = []
+        metadatas = []
         
-        elapsed_time = time.time() - start_time
-        print(f"索引完成，处理了 {len(documents)} 个文档，共 {len(chunks)} 个块，耗时 {elapsed_time:.2f} 秒")
-    
-    def _add_to_chroma(self, embedded_chunks: List[Dict[str, Any]]) -> None:
-        """
-        将嵌入后的文本块添加到ChromaDB
-        
-        参数:
-            embedded_chunks: 包含文本、嵌入和元数据的字典列表
-        """
-        # 准备数据
-        ids = [f"chunk_{i}" for i in range(len(embedded_chunks))]
-        documents = [chunk['content'] for chunk in embedded_chunks]
-        embeddings = [chunk['embedding'].tolist() for chunk in embedded_chunks]
-        metadatas = [chunk['metadata'] for chunk in embedded_chunks]
-        
-        # 处理numpy数组，确保兼容性
-        embeddings = [np.array(emb, dtype=np.float64).tolist() for emb in embeddings]
-        
-        # 批量添加到ChromaDB
-        batch_size = 100
-        for i in range(0, len(ids), batch_size):
-            end_idx = min(i + batch_size, len(ids))
-            batch_ids = ids[i:end_idx]
-            batch_documents = documents[i:end_idx]
-            batch_embeddings = embeddings[i:end_idx]
-            batch_metadatas = metadatas[i:end_idx]
+        for i, chunk in enumerate(embedded_chunks):
+            # 使用唯一ID
+            chunk_id = f"chunk_{i}_{hash(chunk['content'][:50])}"
             
-            self.collection.add(
-                ids=batch_ids,
-                documents=batch_documents,
-                embeddings=batch_embeddings,
-                metadatas=batch_metadatas
-            )
+            ids.append(chunk_id)
+            documents_text.append(chunk['content'])
+            embeddings.append(chunk['embedding'].tolist())
+            metadatas.append(chunk['metadata'])
         
-        print(f"已将 {len(ids)} 个文本块添加到ChromaDB")
+        # 添加到ChromaDB
+        if ids:
+            self.collection.add(
+                ids=ids,
+                documents=documents_text,
+                embeddings=embeddings,
+                metadatas=metadatas
+            )
+            
+        print(f"索引完成，共添加 {len(ids)} 个文档块到向量数据库")
     
-    def retrieve(self, 
-                query: str, 
-                top_k: int = 3) -> List[Dict[str, Any]]:
+    def retrieve(self, query: str, top_k: int = 3) -> List[Dict[str, Any]]:
         """
         检索与查询相关的文档
         
@@ -168,7 +160,7 @@ class SimpleRAG:
         
         # 使用ChromaDB检索
         results = self.collection.query(
-            query_embeddings=[np.array(query_embedding, dtype=np.float64).tolist()],
+            query_embeddings=[query_embedding.tolist()],
             n_results=top_k,
             include=["documents", "metadatas", "distances"]
         )
@@ -185,9 +177,7 @@ class SimpleRAG:
         print(f"找到 {len(formatted_results)} 个相关文档")
         return formatted_results
     
-    def generate_answer(self, 
-                       query: str, 
-                       retrieved_docs: List[Dict[str, Any]]) -> str:
+    def generate_answer(self, query: str, retrieved_docs: List[Dict[str, Any]]) -> str:
         """
         基于检索到的文档生成回答
         

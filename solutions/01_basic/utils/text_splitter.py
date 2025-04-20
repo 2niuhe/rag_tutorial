@@ -4,7 +4,7 @@
 这个模块提供了将长文本分割成较小块的功能，用于向量化和检索。
 """
 
-from typing import List, Dict, Union
+from typing import List, Dict
 
 
 def split_text(documents: List[Dict[str, str]], 
@@ -23,9 +23,10 @@ def split_text(documents: List[Dict[str, str]],
     """
     chunks = []
     
-    for doc in documents:
+    for doc_index, doc in enumerate(documents):
         content = doc['content']
         metadata = doc['metadata']
+        print(f'开始处理文档 {doc_index + 1}/{len(documents)}')
         
         # 如果内容长度小于chunk_size，直接作为一个块
         if len(content) <= chunk_size:
@@ -77,40 +78,27 @@ def _split_long_text(text: str, chunk_size: int, chunk_overlap: int) -> List[str
     
     while start < len(text):
         # 计算当前块的结束位置
-        end = start + chunk_size
+        end = min(start + chunk_size, len(text))
         
         # 如果不是最后一个块，尝试在句子或段落边界处分割
         if end < len(text):
             # 尝试在句号、问号或感叹号后分割
-            for i in range(min(end + 20, len(text) - 1), end - 20, -1):
+            for i in range(min(end + 20, len(text) - 1), max(end - 20, start), -1):
                 if i >= len(text):
                     continue
                 if text[i] in ['.', '?', '!', '\n'] and (i + 1 >= len(text) or text[i + 1] == ' ' or text[i + 1] == '\n'):
                     end = i + 1
                     break
-        else:
-            end = len(text)
         
         # 添加当前块
-        chunks.append(text[start:end])
+        if start < end:  # 确保不添加空块
+            chunks.append(text[start:end])
         
-        # 更新下一个块的起始位置
+        # 更新下一个块的起始位置，确保前进
         start = end - chunk_overlap
+        
+        # 防止死循环：如果start没有前进，强制前进
+        if start >= end - chunk_overlap:
+            start = end + 1
     
     return chunks
-
-
-def split_by_separator(text: str, separator: str = "\n\n") -> List[str]:
-    """
-    按指定分隔符分割文本
-    
-    参数:
-        text: 要分割的文本
-        separator: 分隔符，默认为两个换行符（段落分隔）
-        
-    返回:
-        文本块列表
-    """
-    chunks = text.split(separator)
-    # 过滤掉空块
-    return [chunk.strip() for chunk in chunks if chunk.strip()]
