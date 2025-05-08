@@ -1,0 +1,155 @@
+# 高级RAG系统配置文件
+
+# 语言模型配置
+llm:
+  provider: openai
+  model: gpt-3.5-turbo
+  temperature: 0.1
+  max_tokens: 2000
+  streaming: true
+
+# 嵌入模型配置
+embeddings:
+  provider: openai
+  model: text-embedding-ada-002
+  dimensions: 1536
+  
+  # 备选嵌入模型
+  alternative_models:
+    - provider: huggingface
+      model: BAAI/bge-large-zh-v1.5
+      dimensions: 1024
+    - provider: huggingface
+      model: sentence-transformers/all-MiniLM-L6-v2
+      dimensions: 384
+
+# 向量数据库配置
+vector_stores:
+  primary: 
+    type: pinecone
+    index_name: advanced-rag-index
+    namespace: nova-docs
+    metric: cosine
+    
+  secondary:
+    type: weaviate
+    class_name: NovaDocument
+    
+  local:
+    type: qdrant
+    collection_name: nova_collection
+    location: ./qdrant_db
+
+# 文档处理配置
+document_processing:
+  # 分块策略
+  chunking:
+    strategy: semantic  # semantic, fixed, recursive
+    chunk_size: 1000
+    chunk_overlap: 200
+    
+  # 语义分块配置
+  semantic_chunking:
+    buffer_size: 3
+    breakpoint_threshold: 0.3
+    
+  # 层次化索引配置
+  hierarchical_indexing:
+    enabled: true
+    levels: 3  # 文档 -> 段落 -> 句子
+    
+  # 多模态处理
+  multimodal:
+    enabled: true
+    image_formats: [png, jpg, jpeg]
+    extract_text_from_images: true
+
+# 检索配置
+retrieval:
+  # 查询转换
+  query_transformation:
+    enabled: true
+    strategies:
+      - type: rewrite
+        model: gpt-3.5-turbo
+      - type: expand
+        num_expansions: 3
+      - type: decompose
+        max_sub_questions: 5
+  
+  # 检索策略
+  strategies:
+    - type: vector
+      weight: 0.6
+    - type: keyword
+      weight: 0.3
+    - type: hybrid
+      weight: 0.1
+  
+  # 重排序
+  reranking:
+    enabled: true
+    model: cross-encoder/ms-marco-MiniLM-L-6-v2
+    top_n: 10
+  
+  # 上下文压缩
+  context_compression:
+    enabled: true
+    strategy: llm_summarize  # llm_summarize, llm_extract, map_reduce
+    max_context_length: 3000
+
+# 生成配置
+generation:
+  prompt_templates:
+    default: |
+      你是一个专门回答关于OpenStack Nova命令的专家。
+      请基于以下检索到的上下文信息回答用户的问题。
+      如果上下文中没有足够的信息，请直接说"我没有足够的信息来回答这个问题"，不要编造信息。
+      
+      上下文信息:
+      {context}
+      
+      用户问题: {question}
+      
+      请提供详细、准确的回答，并引用相关的命令和参数。
+    
+    structured_output: |
+      你是一个专门回答关于OpenStack Nova命令的专家。
+      请基于以下检索到的上下文信息回答用户的问题。
+      如果上下文中没有足够的信息，请直接说"我没有足够的信息来回答这个问题"，不要编造信息。
+      
+      上下文信息:
+      {context}
+      
+      用户问题: {question}
+      
+      请以JSON格式提供回答，格式如下:
+      ```json
+      {
+        "answer": "详细回答",
+        "commands": ["相关命令1", "相关命令2"],
+        "parameters": {
+          "参数1": "说明",
+          "参数2": "说明"
+        },
+        "examples": ["示例1", "示例2"],
+        "sources": ["来源1", "来源2"]
+      }
+      ```
+
+# 评估配置
+evaluation:
+  metrics:
+    - type: relevance
+      weight: 0.3
+    - type: faithfulness
+      weight: 0.3
+    - type: answer_correctness
+      weight: 0.4
+  
+  benchmark_datasets:
+    - name: nova_commands_qa
+      path: ./benchmarks/nova_qa.json
+
+# 语料库路径
+corpus_path: ../../corpus

@@ -17,6 +17,15 @@ default = false
 # Don't make this index explicit so it can be used for dependencies
 explicit = false
 
+# Define the PyTorch index for CPU
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+# Make this index the default for torch packages
+default = false
+# Don't make this index explicit so it can be used for dependencies
+explicit = false
+
 # Pin torch to use the PyTorch ROCm index
 [tool.uv.sources]
 torch = { index = "pytorch-rocm" }
