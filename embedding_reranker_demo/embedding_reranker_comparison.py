@@ -7,6 +7,8 @@ to demonstrate the improvement in search quality.
 import os
 import glob
 import time
+import pickle
+import torch
 import numpy as np
 from tqdm import tqdm
 from typing import List, Dict, Tuple
@@ -17,8 +19,16 @@ from sentence_transformers.cross_encoder import CrossEncoder
 CORPUS_DIR = "../corpus"
 EMBEDDING_MODEL_NAME = "BAAI/bge-m3"
 RERANKER_MODEL_NAME = "BAAI/bge-reranker-v2-m3"
-TOP_K_RETRIEVAL = 20  # Number of documents to retrieve with embeddings
+TOP_K_RETRIEVAL = 16  # Number of documents to retrieve with embeddings
 TOP_K_RESULTS = 5     # Number of documents to show in final results
+
+DEVICE='cpu'
+BACKEND='openvino'
+
+# Cache files - using the same cache as embedding_reranker_demo.py
+CACHE_DIR = "cache"
+EMBEDDINGS_CACHE = os.path.join(CACHE_DIR, "embeddings.pkl")
+DOCUMENTS_CACHE = os.path.join(CACHE_DIR, "documents.pkl")
 
 class Document:
     def __init__(self, doc_id: str, content: str, filepath: str):
@@ -31,6 +41,22 @@ class Document:
 
 def load_corpus(corpus_dir: str) -> List[Document]:
     """Load all text documents from the corpus directory."""
+    # Check if documents are cached
+    if os.path.exists(DOCUMENTS_CACHE):
+        print(f"Loading documents from cache...")
+        try:
+            with open(DOCUMENTS_CACHE, 'rb') as f:
+                documents = pickle.load(f)
+            print(f"Loaded {len(documents)} documents from cache")
+            return documents
+        except Exception as e:
+            print(f"Error loading from cache: {e}")
+            print("Will load documents from source files")
+    
+    # Create cache directory if it doesn't exist
+    os.makedirs(CACHE_DIR, exist_ok=True)
+    
+    # Load documents from files
     documents = []
     files = glob.glob(os.path.join(corpus_dir, "*.txt"))
     
@@ -44,14 +70,57 @@ def load_corpus(corpus_dir: str) -> List[Document]:
             
         documents.append(Document(doc_id, content, filename))
     
+    # Cache the documents
+    try:
+        with open(DOCUMENTS_CACHE, 'wb') as f:
+            pickle.dump(documents, f)
+        print(f"Cached {len(documents)} documents")
+    except Exception as e:
+        print(f"Error caching documents: {e}")
+    
     return documents
 
 def create_embeddings(model: SentenceTransformer, documents: List[Document]) -> np.ndarray:
     """Create embeddings for all documents in the corpus."""
+    # Check if embeddings are cached
+    if os.path.exists(EMBEDDINGS_CACHE):
+        print(f"Loading embeddings from cache...")
+        try:
+            with open(EMBEDDINGS_CACHE, 'rb') as f:
+                embeddings = pickle.load(f)
+            print(f"Loaded embeddings from cache: {embeddings.shape}")
+            return embeddings
+        except Exception as e:
+            print(f"Error loading embeddings from cache: {e}")
+            print("Will create embeddings from scratch")
+    
+    # Create cache directory if it doesn't exist
+    os.makedirs(CACHE_DIR, exist_ok=True)
+    
+    # Create embeddings
     print(f"Creating embeddings using {model.get_sentence_embedding_dimension()}-dimensional vectors...")
+    print(f"This may take a while for the first run...")
     
     contents = [doc.content for doc in documents]
-    embeddings = model.encode(contents, show_progress_bar=True, convert_to_numpy=True)
+    
+    # Process in smaller batches to show more granular progress
+    batch_size = 16
+    embeddings_list = []
+    
+    for i in tqdm(range(0, len(contents), batch_size), desc="Batches"):
+        batch = contents[i:i+batch_size]
+        batch_embeddings = model.encode(batch, convert_to_numpy=True)
+        embeddings_list.append(batch_embeddings)
+    
+    embeddings = np.vstack(embeddings_list)
+    
+    # Cache the embeddings
+    try:
+        with open(EMBEDDINGS_CACHE, 'wb') as f:
+            pickle.dump(embeddings, f)
+        print(f"Cached embeddings of shape {embeddings.shape}")
+    except Exception as e:
+        print(f"Error caching embeddings: {e}")
     
     return embeddings
 
@@ -156,19 +225,31 @@ def display_results(results: List[Tuple[Document, float]], title: str):
     print("\n" + "="*80)
 
 def main():
+    print("Starting the embedding and reranker comparison demo...")
+    print("Note: First run will take longer as models are downloaded and cached")
+    
     # Load the corpus
     documents = load_corpus(CORPUS_DIR)
     print(f"Loaded {len(documents)} documents")
     
-    # Load models
+    # Load models with feedback
     print(f"Loading embedding model: {EMBEDDING_MODEL_NAME}")
-    embedding_model = SentenceTransformer(EMBEDDING_MODEL_NAME)
+    print("This may take a while if it's the first time loading the model...")
+    start_time = time.time()
+    embedding_model = SentenceTransformer(EMBEDDING_MODEL_NAME, device=DEVICE, backend=BACKEND)
+    print(f"Embedding model loaded in {time.time() - start_time:.2f} seconds")
     
     print(f"Loading reranker model: {RERANKER_MODEL_NAME}")
-    reranker_model = CrossEncoder(RERANKER_MODEL_NAME)
+    print("This may take a while if it's the first time loading the model...")
+    start_time = time.time()
+    reranker_model = CrossEncoder(RERANKER_MODEL_NAME, device=DEVICE, backend=BACKEND)
+    print(f"Reranker model loaded in {time.time() - start_time:.2f} seconds")
     
     # Create embeddings for all documents
     embeddings = create_embeddings(embedding_model, documents)
+    
+    print("\nSetup complete! Ready for interactive search comparison.")
+    print("Tip: Subsequent runs will be much faster due to caching.")
     
     # Interactive search loop
     while True:

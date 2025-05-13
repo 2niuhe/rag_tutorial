@@ -22,6 +22,9 @@ RERANKER_MODEL_NAME = "BAAI/bge-reranker-v2-m3"
 TOP_K_RETRIEVAL = 8  # Number of documents to retrieve with embeddings
 TOP_K_RERANKED = 3    # Number of documents to show after reranking
 
+DEVICE='cpu'
+BACKEND='openvino'
+
 # Cache files
 CACHE_DIR = "cache"
 EMBEDDINGS_CACHE = os.path.join(CACHE_DIR, "embeddings.pkl")
@@ -200,13 +203,13 @@ def main():
     print(f"Loading embedding model: {EMBEDDING_MODEL_NAME}")
     print("This may take a while if it's the first time loading the model...")
     start_time = time.time()
-    embedding_model = SentenceTransformer(EMBEDDING_MODEL_NAME)
+    embedding_model = SentenceTransformer(EMBEDDING_MODEL_NAME, device=DEVICE, backend=BACKEND)
     print(f"Embedding model loaded in {time.time() - start_time:.2f} seconds")
     
     print(f"Loading reranker model: {RERANKER_MODEL_NAME}")
     print("This may take a while if it's the first time loading the model...")
     start_time = time.time()
-    reranker_model = CrossEncoder(RERANKER_MODEL_NAME, device='cpu', backend='openvino')
+    reranker_model = CrossEncoder(RERANKER_MODEL_NAME, device=DEVICE, backend=BACKEND)
     print(f"Reranker model loaded in {time.time() - start_time:.2f} seconds")
     # Create embeddings for all documents
     embeddings = create_embeddings(embedding_model, documents)
