@@ -8,6 +8,7 @@ import os
 import glob
 import time
 import pickle
+import torch
 import numpy as np
 from tqdm import tqdm
 from typing import List, Dict, Tuple
@@ -18,8 +19,8 @@ from sentence_transformers.cross_encoder import CrossEncoder
 CORPUS_DIR = "../corpus"
 EMBEDDING_MODEL_NAME = "BAAI/bge-m3"
 RERANKER_MODEL_NAME = "BAAI/bge-reranker-v2-m3"
-TOP_K_RETRIEVAL = 20  # Number of documents to retrieve with embeddings
-TOP_K_RERANKED = 5    # Number of documents to show after reranking
+TOP_K_RETRIEVAL = 8  # Number of documents to retrieve with embeddings
+TOP_K_RERANKED = 3    # Number of documents to show after reranking
 
 # Cache files
 CACHE_DIR = "cache"
@@ -205,9 +206,8 @@ def main():
     print(f"Loading reranker model: {RERANKER_MODEL_NAME}")
     print("This may take a while if it's the first time loading the model...")
     start_time = time.time()
-    reranker_model = CrossEncoder(RERANKER_MODEL_NAME)
+    reranker_model = CrossEncoder(RERANKER_MODEL_NAME, device='cpu', backend='openvino')
     print(f"Reranker model loaded in {time.time() - start_time:.2f} seconds")
-    
     # Create embeddings for all documents
     embeddings = create_embeddings(embedding_model, documents)
     
